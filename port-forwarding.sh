@@ -101,7 +101,7 @@ iptables -t nat -A POSTROUTING -j MASQUERADE
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
 
-apt-get -y install iptables-persistent
+# sudoapt-get -y install iptables-persistent
 iptables-save >/etc/iptables/rules.v4
 service openvpn restart
 iptables -L --line-numbers
