@@ -74,8 +74,8 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 # iptables -A INPUT -p udp -m udp --dport 33434:33523 -j ACCEPT
 
 # OpenVPN Port  Forwarding rules to port range https://unix.stackexchange.com/questions/366904/redirect-all-ports-to-openvpn-client
-iptables -t nat -A PREROUTING -p tcp -m tcp --dport 80:65535 -j DNAT --to-destination 10.8.0.2
-iptables -t filter -A INPUT -p tcp -d 10.8.0.2 --dport 80:65535 -j ACCEPT
+iptables -t nat -A PREROUTING -p tcp -m tcp --dport 7000 -j DNAT --to-destination 10.8.0.2
+iptables -t filter -A INPUT -p tcp -d 10.8.0.2 --dport 7000 -j ACCEPT
 iptables -t nat -A POSTROUTING -j MASQUERADE
 
 # OpenVPN Port  Forwarding rules for specific port
